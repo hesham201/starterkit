@@ -1,0 +1,34 @@
+// Bootstrap Scss //
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "font-awesome/css/font-awesome.min.css";
+
+// ico icon
+@import "./vendors/icofont.scss";
+
+// Themefiy Awesome
+@import "./vendors/themify/themify-icons";
+
+// Feather icons
+@import "./vendors/feather-icon";
+
+// simplebar
+@import "simplebar-react/dist/simplebar.min.css";
+
+//react-dropzone
+@import "../scss/pages/dropzone";
+
+// ReactToastify
+@import "~react-toastify/dist/ReactToastify.css";
+
+// WeatherIcons
+@import "./vendors/whether-icon.scss";
+
+// Flag icon
+@import "./vendors/flag-icon.scss";
+@import "/node_modules/flag-icons/css/flag-icons.min.css";
+
+// Style Scss //
+@import "./style.scss";
+
+// Responsive Scss //
+@import "./responsive.scss";
