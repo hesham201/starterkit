@@ -4,6 +4,7 @@ import EditProfile from "../Pages/Application/Users/EditProfile/EditProfile";
 import UserCards from "../Pages/Application/Users/UserCards/UserCards";
 import AddUser from "../Pages/Application/Users/AddUser/AddUser";
 import UserEdit from "../Component/Application/Users/EditUser/UserEdit";
+import AddBlog from "../Pages/Application/blogs/AddBlog/AddBlog";
 const Routes = [
   // Sample Page
   { path: `/pages/samplepage`, Component: <SamplePage /> },
@@ -29,6 +30,11 @@ const Routes = [
   },
   { path: `/authors/cards`, Component: <UserCards /> },
   { path: `/authors/add`, Component: <AddUser /> },
+  // blog
+  {
+    path: `/blogs/add`,
+    Component: <AddBlog />,
+  },
 ];
 
 export default Routes;

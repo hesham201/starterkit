@@ -10,15 +10,15 @@ const TitleAndClientSection = () => {
       <Row>
         <Col>
           <FormGroup>
-            <Label check>{UsersName}</Label>
+            <Label check>Title</Label>
             <Field
-              name="name"
+              name="title"
               type="text"
               className="form-control"
-              placeholder={UsersName}
+              placeholder={"title"}
             />
             <ErrorMessage
-              name="name"
+              name="title"
               component="span"
               className="text-danger"
             />
@@ -28,19 +28,15 @@ const TitleAndClientSection = () => {
       <Row>
         <Col>
           <FormGroup>
-            <Label check>
-              {currentPathname === "/authors/add" ? AuthorsBio : UserEmail}
-            </Label>
+            <Label check>Slug</Label>
             <Field
-              name={currentPathname === "/authors/add" ? "bio" : "email"}
+              name={"slug"}
               className="form-control"
               type="text"
-              placeholder={
-                currentPathname === "/authors/add" ? "Bio" : UserEmail
-              }
+              placeholder={"slug"}
             />
             <ErrorMessage
-              name={currentPathname === "/authors/add" ? "bio" : "email"}
+              name={"slug"}
               component="span"
               className="text-danger"
             />

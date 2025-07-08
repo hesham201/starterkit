@@ -1,6 +1,6 @@
 import { Col, FormGroup, Label, Row } from "reactstrap";
 import { UploadProjectFiles } from "../../../../utils/Constant";
-import CommonFileUpload from "../../../../CommonElements/CommonFileUpload";
+import CommonFileUpload from "./CommonFileUpload";
 
 const UploadProjectFile = () => {
   return (
