@@ -1,12 +1,11 @@
 import { Card, CardBody, Col, Container, Row } from "reactstrap";
 import CreateNewProjectForm from "./CreateNewProjectForm";
 import Breadcrumbs from "../../../../CommonElements/Breadcrumbs/Breadcrumbs";
-import { Project, ProjectCreates } from "../../../../utils/Constant";
-
-const ProjectCreateContainer = () => {
+import { Project } from "../../../../utils/Constant";
+const BlogCreateContainer = () => {
   return (
     <>
-      <Breadcrumbs mainTitle={ProjectCreates} parent={Project} />
+      <Breadcrumbs mainTitle={"Blog Create"} parent={Project} />
       <Container fluid>
         <Row>
           <Col sm="12">
@@ -22,4 +21,4 @@ const ProjectCreateContainer = () => {
   );
 };
 
-export default ProjectCreateContainer;
+export default BlogCreateContainer;

@@ -18,13 +18,15 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import SocialApp from "./SocialApp";
 import apiRequestHelper from "../../utils/apiRequestHelper";
+import { useAuth } from "../../context/AuthContext";
+// import loginUser
 
 const Login = () => {
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState("admin@admin.com");
   const [password, setPassword] = useState("1234");
   const navigate = useNavigate();
-
+  const { loginUser } = useAuth();
   const SimpleLoginHandle = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
@@ -38,6 +40,8 @@ const Login = () => {
       // Store token and login flag
       localStorage.setItem("token", data.token); // adjust based on actual API
       localStorage.setItem("login", JSON.stringify(true));
+      loginUser(data.data.user, data.data.token);
+      // loginUser;
 
       toast.success("Login successful!");
       navigate(`/pages/samplepage`);

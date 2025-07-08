@@ -39,6 +39,11 @@ export const MenuList: MenuItem[] = [
             type: "link",
             title: "User Cards",
           },
+          {
+            path: `/users/add`,
+            type: "link",
+            title: "Add User",
+          },
         ],
       },
       {
@@ -61,6 +66,11 @@ export const MenuList: MenuItem[] = [
             path: `/authors/cards`,
             type: "link",
             title: "Author Cards",
+          },
+          {
+            path: `/authors/add`,
+            type: "link",
+            title: "Add Author",
           },
         ],
       },

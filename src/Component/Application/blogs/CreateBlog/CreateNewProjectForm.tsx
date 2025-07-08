@@ -27,18 +27,8 @@ const CreateNewProjectForm = () => {
   const projectSubmit = async (
     values: UserInitialValue | AuthorInitialValue
   ) => {
-    let url;
-    if (currentPathname === "/authors/add") {
-      url = "/authors";
-    } else {
-      url = "/users";
-    }
     try {
-      const response = await apiRequestHelper.post(
-        url,
-        values,
-        currentPathname === "/authors/add" ? true : false
-      );
+      const response = await apiRequestHelper.post("/blogs", values, true);
 
       const data = response.data;
       console.log(data);

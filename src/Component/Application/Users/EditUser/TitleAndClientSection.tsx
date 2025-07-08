@@ -29,18 +29,18 @@ const TitleAndClientSection = () => {
         <Col>
           <FormGroup>
             <Label check>
-              {currentPathname === "/authors/add" ? AuthorsBio : UserEmail}
+              {currentPathname.includes("/authors") ? AuthorsBio : UserEmail}
             </Label>
             <Field
-              name={currentPathname === "/authors/add" ? "bio" : "email"}
+              name={currentPathname.includes("/authors") ? "bio" : "email"}
               className="form-control"
               type="text"
               placeholder={
-                currentPathname === "/authors/add" ? "Bio" : UserEmail
+                currentPathname.includes("/authors") ? "Bio" : UserEmail
               }
             />
             <ErrorMessage
-              name={currentPathname === "/authors/add" ? "bio" : "email"}
+              name={currentPathname.includes("/authors") ? "bio" : "email"}
               component="span"
               className="text-danger"
             />

@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import apiRequestHelper from "../../../../utils/apiRequestHelper";
 import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
+import { Btn } from "../../../../AbstractElements";
 interface UserType {
   id: number;
   name: string;
@@ -89,6 +90,28 @@ const UserCardsContainer = () => {
                     )}
                     {item.bio && <span className="f-light">{item.bio}</span>}
                     <SocialMediaIcons listClassName="card-social" />
+                    <Row>
+                      <Col>
+                        <div className="text-end">
+                          <Link
+                            to={
+                              location.pathname.includes("/authors")
+                                ? `/authors/edit/${item.id}`
+                                : `/users/edit/${item.id}`
+                            }
+                          >
+                            <Btn color="success" className="me-3">
+                              Edit
+                            </Btn>
+                          </Link>
+                          <Link
+                            to={`${process.env.PUBLIC_URL}/project/projectlist`}
+                          >
+                            <Btn color="danger">Delete</Btn>
+                          </Link>
+                        </div>
+                      </Col>
+                    </Row>
                     {/* <UserCardsFooter item={item} /> */}
                   </div>
                 </CardBody>

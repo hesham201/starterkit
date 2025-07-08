@@ -1,7 +1,7 @@
 import { FC, Fragment, useState, useEffect } from "react";
 import Dropzone from "react-dropzone";
 import { useField, useFormikContext } from "formik";
-import { H5, P, SVG } from "../AbstractElements";
+import { H5, P, SVG } from "../../../../AbstractElements";
 
 interface Props {
   name: string;

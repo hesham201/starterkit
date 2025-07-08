@@ -3,6 +3,7 @@ import {
   ProjectInitialValue,
   ProjectListData,
   UserInitialValue,
+  AuthorInitialValue,
 } from "../../../Types/Application/ProjectList/ProjectList";
 
 export const projectData: ProjectListData[] = [
@@ -131,6 +132,11 @@ export const userInitialValue: UserInitialValue = {
   password: "",
   username: "",
 };
+export const authorInitialValue: AuthorInitialValue = {
+  name: "",
+  bio: "",
+  image: undefined as any, // 👈 important: must not be empty string!
+};
 
 export const userValidation = Yup.object().shape({
   name: Yup.string().required("Name is required"),
@@ -143,10 +149,28 @@ export const userValidation = Yup.object().shape({
     .min(6, "Password must be at least 6 characters")
     .required("Password is required"),
 
-  username: Yup.number()
-    .min(0, "Username must be at least 0")
+  username: Yup.string()
+    .min(6, "Username must be at least 6")
     .max(100, "Username must be at most 100")
     .required("Username is required"),
+});
+export const authorValidation = Yup.object().shape({
+  name: Yup.string().required("Name is required"),
+
+  bio: Yup.string()
+    .min(10, "Bio must be at least 10 characters")
+    .required("Bio is required"),
+
+  image: Yup.mixed()
+    .required("Image is required")
+    .test("fileType", "Unsupported file format", (value) => {
+      if (!value) return false;
+
+      const file = value as File;
+      return ["image/jpeg", "image/png", "image/jpg", "image/webp"].includes(
+        file.type
+      );
+    }),
 });
 export const projectValidation = Yup.object().shape({
   title: Yup.string().required("Title is required"),

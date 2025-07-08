@@ -1609,6 +1609,8 @@ export const UsersProfile = "Users Profile";
 export const UsersName = "Name";
 export const UserEmail = "Email";
 export const UserPassword = "Password";
+export const AuthorsName = "Name";
+export const AuthorsBio = "Bio";
 
 // To-do
 export const ToDoHeading = "To-Do";

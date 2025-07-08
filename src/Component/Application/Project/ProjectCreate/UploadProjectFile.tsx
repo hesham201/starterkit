@@ -8,7 +8,7 @@ const UploadProjectFile = () => {
       <Col>
         <FormGroup>
           <Label check>{UploadProjectFiles}</Label>
-          <CommonFileUpload />
+          <CommonFileUpload name="dw" />
         </FormGroup>
       </Col>
     </Row>

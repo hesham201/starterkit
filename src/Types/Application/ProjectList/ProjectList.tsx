@@ -55,6 +55,11 @@ export interface UserInitialValue {
   password: string;
   username: string;
 }
+export interface AuthorInitialValue {
+  name: string;
+  bio: string;
+  image: File | null;
+}
 
 export interface ProjectType {
   activeTab: string;
