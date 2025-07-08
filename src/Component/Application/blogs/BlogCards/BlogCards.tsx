@@ -16,7 +16,7 @@ interface UserType {
   id: number;
   title: string;
   slug: string;
-  pictureUrl: string;
+  image: string;
 }
 
 // add any other fields your API returns
@@ -26,34 +26,28 @@ const BlogCardsContainer = () => {
   const currentPathname = location.pathname;
   useEffect(() => {
     const fetchUsers = async () => {
-      let url;
-      if (currentPathname === "/authors/cards") {
-        url = "/authors";
-      } else {
-        url = "/users";
-      }
       try {
-        const response = await apiRequestHelper.get(url);
-        console.log(response.data.data.users);
+        console.log("here");
+        const response = await apiRequestHelper.get("/blogs");
+        console.log("after");
+        console.log("response", response.data.data.blogs);
 
-        setUsers(
-          url === "/users"
-            ? response.data.data.users
-            : response.data.data.authors
-        ); // Adjust based on your API structure
+        setUsers(response.data.data.blogs); // Adjust based on your API structure
         console.log(users);
       } catch (error: any) {
-        toast.error(error.response?.data?.message || "Failed to load users");
+        console.log("error", error.response?.data?.messages?.[0]?.message);
+        toast.error(
+          error.response?.data?.messages?.[0]?.message || "Failed to load Blogs"
+        );
       }
     };
 
     fetchUsers();
-  }, [location.pathname]);
+  }, []);
 
-  console.log("Current Pathname:", currentPathname);
   return (
     <>
-      <Breadcrumbs mainTitle={UsersCards} parent={Users} />
+      <Breadcrumbs mainTitle={"Blog Cards"} parent={Users} />
       <Container fluid>
         <Row className="user-cards-items user-card-wrapper">
           {users.map((item) => (
@@ -68,9 +62,9 @@ const BlogCardsContainer = () => {
                 <CardBody>
                   <div className="social-img-wrap">
                     <div className="social-img">
-                      {item.pictureUrl && (
+                      {item.image && (
                         <img
-                          src={`http://localhost:3001${item.pictureUrl}`}
+                          src={`http://localhost:3001${item.image}`}
                           className="img-fluid"
                           alt="user"
                         />

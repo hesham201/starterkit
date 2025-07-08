@@ -5,6 +5,7 @@ import UserCards from "../Pages/Application/Users/UserCards/UserCards";
 import AddUser from "../Pages/Application/Users/AddUser/AddUser";
 import UserEdit from "../Component/Application/Users/EditUser/UserEdit";
 import AddBlog from "../Pages/Application/blogs/AddBlog/AddBlog";
+import BlogCards from "../Pages/Application/blogs/BlogCards/BlogCards";
 const Routes = [
   // Sample Page
   { path: `/pages/samplepage`, Component: <SamplePage /> },
@@ -34,6 +35,10 @@ const Routes = [
   {
     path: `/blogs/add`,
     Component: <AddBlog />,
+  },
+  {
+    path: `/blogs/cards`,
+    Component: <BlogCards />,
   },
 ];
 

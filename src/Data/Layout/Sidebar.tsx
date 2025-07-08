@@ -80,6 +80,11 @@ export const MenuList: MenuItem[] = [
             type: "link",
             title: "Add Blogs",
           },
+          {
+            path: `/blogs/cards`,
+            type: "link",
+            title: "Blogs Cards",
+          },
         ],
       },
     ],
