@@ -25,11 +25,6 @@ export const MenuList: MenuItem[] = [
         active: false,
         children: [
           {
-            path: `/users/userprofile`,
-            type: "link",
-            title: "User Profile",
-          },
-          {
             path: `/users/cards`,
             type: "link",
             title: "User Cards",
@@ -47,16 +42,6 @@ export const MenuList: MenuItem[] = [
         type: "sub",
         active: false,
         children: [
-          {
-            path: `/authors/userprofile`,
-            type: "link",
-            title: "Author Profile",
-          },
-          {
-            path: `/authors/useredit`,
-            type: "link",
-            title: "Author Edit",
-          },
           {
             path: `/authors/cards`,
             type: "link",

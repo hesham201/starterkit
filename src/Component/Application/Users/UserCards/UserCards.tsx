@@ -12,6 +12,7 @@ import apiRequestHelper from "../../../../utils/apiRequestHelper";
 import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
 import { Btn } from "../../../../AbstractElements";
+import CenteredModal from "../../../Ui-Kits/Modal/CenteredModal/CenteredModal";
 interface UserType {
   id: number;
   name: string;
@@ -23,8 +24,13 @@ interface UserType {
 // add any other fields your API returns
 const UserCardsContainer = () => {
   const [users, setUsers] = useState<UserType[]>([]);
+  const [selectedBlogId, setSelectedBlogId] = useState<number | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
   const location = useLocation();
   const currentPathname = location.pathname;
+  const handleDeleteSuccess = () => {
+    setUsers((prev) => prev.filter((blog) => blog.id !== selectedBlogId));
+  };
   useEffect(() => {
     const fetchUsers = async () => {
       let url;
@@ -104,11 +110,15 @@ const UserCardsContainer = () => {
                               Edit
                             </Btn>
                           </Link>
-                          <Link
-                            to={`${process.env.PUBLIC_URL}/project/projectlist`}
+                          <Btn
+                            color="danger"
+                            onClick={() => {
+                              setSelectedBlogId(item.id);
+                              setModalOpen(true);
+                            }}
                           >
-                            <Btn color="danger">Delete</Btn>
-                          </Link>
+                            Delete
+                          </Btn>
                         </div>
                       </Col>
                     </Row>
@@ -120,6 +130,15 @@ const UserCardsContainer = () => {
           ))}
         </Row>
       </Container>
+      {selectedBlogId !== null && (
+        <CenteredModal
+          isOpen={modalOpen}
+          toggle={() => setModalOpen(false)}
+          blogId={selectedBlogId}
+          url={currentPathname === "/authors/cards" ? "/authors" : "users"}
+          onDeleteSuccess={handleDeleteSuccess}
+        />
+      )}
     </>
   );
 };
