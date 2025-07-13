@@ -8,7 +8,7 @@ export interface CommonCardHeaderProp {
   title: string;
   span?: SpanType[];
   headClass?: string;
-  icon?: JSX.Element;
+  icon?: React.ReactNode;
   tagClass?: string;
 }
 export interface TabContentProp {
@@ -76,7 +76,7 @@ export interface CommonPopoverProp {
 interface Itemtype {
   id: number;
   placement?: any;
-  tooltip?: string | JSX.Element;
+  tooltip?: string | React.ReactNode;
   btnColor?: string;
   btnText?: string;
   className?: string;
@@ -154,7 +154,7 @@ interface DataProp {
 interface NumberProp {
   className?: string;
   text?: string;
-  icon?: JSX.Element;
+  icon?: React.ReactNode;
 }
 
 export interface CommonTagCardBodyType {
